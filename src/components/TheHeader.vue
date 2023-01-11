@@ -4,10 +4,12 @@ import TheScore from "./TheScore.vue";
 </script>
 
 <template>
-  <div
-    class="relative top-5 flex justify-around items-center p-5 border-2 border-gray-500 rounded-lg"
-  >
-    <img class="w-28 md:w-36" :src="Logo" />
-    <TheScore />
-  </div>
+  <header class="relative mt-4 flex justify-center">
+    <div
+      class="border-2 border-gray-500 rounded-lg w-5/6 flex justify-around items-center"
+    >
+      <img class="w-28 md:w-36 lg:w-38" :src="Logo" alt="Logo del juego" />
+      <TheScore />
+    </div>
+  </header>
 </template>

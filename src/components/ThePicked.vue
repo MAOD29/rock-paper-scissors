@@ -1,3 +1,23 @@
+<script setup>
+// import { ref } from "vue";
+import TheOptions from "./TheOptions.vue";
+import TheResult from "./TheResult.vue";
+const bgPrimaryYou = "#4B6AF1";
+const bgSecondaryYou = "#E5E9E5";
+const widthYou = "50%";
+const iconYou = "";
+const bgPrimaryOpponent = "#192845";
+const bgSecondaryOpponent = "#192845";
+const widthOpponent = "50%";
+const iconOpponent = "";
+
+// const showIconOpponent = () => {
+//     setTimeout(() => {
+//         iconOpponent
+//     }, 100);
+// }
+</script>
+
 <template>
   <div class="md:flex md:justify-center">
     <div
@@ -23,25 +43,5 @@
       </div>
     </div>
   </div>
-  <TheResult/>
+  <TheResult />
 </template>
-
-<script setup>
-// import { ref } from "vue";
-import TheOptions from "./TheOptions.vue";
-import TheResult from "./TheResult.vue";
-const bgPrimaryYou = "#4B6AF1";
-const bgSecondaryYou = "#E5E9E5";
-const widthYou = "50%";
-const iconYou = "";
-const bgPrimaryOpponent = "#192845";
-const bgSecondaryOpponent = "#192845";
-const widthOpponent = "50%";
-const iconOpponent = "";
-
-// const showIconOpponent = () => {
-//     setTimeout(() => {
-//         iconOpponent
-//     }, 100);
-// }
-</script>
