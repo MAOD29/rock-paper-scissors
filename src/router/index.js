@@ -1,18 +1,18 @@
 import { createRouter, createWebHistory } from "vue-router";
-import TheMenu from "../views/TheMenu.vue";
+import TheHome from "../views/TheHome.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "TheMenu",
-      component: TheMenu,
+      name: "TheHome",
+      component: TheHome,
     },
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",
-      component: () => import("../views/TheMenu.vue"),
+      component: () => import("../views/TheHome.vue"),
     },
   ],
 });

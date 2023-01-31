@@ -9,7 +9,7 @@ const statusDialog = computed(() => {
 });
 
 const showRules = () => {
-  store.commit("showRules");
+  store.dispatch("showRules");
 };
 </script>
 

@@ -2,24 +2,22 @@
 import { defineProps, toRefs } from "vue";
 
 const props = defineProps({
-  bgPrimary: String,
-  bgSecondary: String,
+  bgBorder: String,
   iconPaper: String,
-  width: String,
 });
-const { bgPrimary, bgSecondary, iconPaper, width } = toRefs(props);
+const { bgBorder, iconPaper } = toRefs(props);
 </script>
 
 <template>
   <div
-    class="flex justify-center items-center w-28 h-28 md:w-32 md:h-32 lg:w-48 lg:h-48 rounded-full"
-    :style="{ backgroundColor: bgPrimary }"
+    class="flex justify-center items-center w-32 h-32 md:w-36 md:h-36  lg:w-48 lg:h-48 rounded-full active:shadow-xl active:shadow-gray-300"
+    :style="{ backgroundColor: bgBorder }"
   >
-    <div
-      class="flex justify-center items-center w-20 h-20 md:w-24 md:h-24 lg:w-36 lg:h-36 rounded-full"
-      :style="{ backgroundColor: bgSecondary }"
+    <button
+      class="flex justify-center items-center w-24 h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 rounded-full bg-white hover:bg-opacity-50"
     >
-      <img :style="{ width: width }" :src="iconPaper" alt="" />
-    </div>
+
+      <img v-if="iconPaper" class="w-1/2" :src="iconPaper" alt="Icon to play" />
+    </button>
   </div>
 </template>

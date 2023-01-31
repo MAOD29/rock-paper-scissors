@@ -11,3 +11,8 @@ body{
   background: radial-gradient(circle,var(--bgc));
   /* height: 100vh; */
 }
+@layer base {
+  html {
+      -webkit-tap-highlight-color: transparent;
+  }
+}

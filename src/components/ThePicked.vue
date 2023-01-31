@@ -1,47 +1,47 @@
 <script setup>
-// import { ref } from "vue";
 import TheOptions from "./TheOptions.vue";
 import TheResult from "./TheResult.vue";
-const bgPrimaryYou = "#4B6AF1";
-const bgSecondaryYou = "#E5E9E5";
-const widthYou = "50%";
-const iconYou = "";
-const bgPrimaryOpponent = "#192845";
-const bgSecondaryOpponent = "#192845";
-const widthOpponent = "50%";
-const iconOpponent = "";
+import TheRules from "./TheRules.vue";
+import constants from "../utils/constant.js";
+import { getResultGame, opponentOption } from "../composables/useOptions.js";
+import { computed } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
 
-// const showIconOpponent = () => {
-//     setTimeout(() => {
-//         iconOpponent
-//     }, 100);
-// }
+const pickedOption = computed(() => {
+  return store.getters.getOption;
+});
+const youPicked = constants.find(
+  (constant) => constant.id == pickedOption.value
+);
+const opponentPicked = opponentOption();
+const resultGame = getResultGame(youPicked, opponentPicked);
+const classWinner = "shadow-2xl shadow-gray-300";
+
 </script>
-
 <template>
-  <div class="md:flex md:justify-center">
-    <div
-      class="flex justify-around relative top-8 gap-3 items-baseline p-5 m-6 md:w-80 md:-80"
-    >
+  <section class="relative md:mt-4 flex flex-col justify-center items-center">
+    <div class="flex flex-wrap justify-around gap-2 md:gap-12">
       <div class="flex flex-col items-center">
         <TheOptions
-          :bgPrimary="bgPrimaryYou"
-          :bgSecondary="bgSecondaryYou"
-          :width="widthYou"
-          :iconPaper="iconYou"
+          :class="resultGame == 1 ? classWinner : ''"
+          :bgBorder="youPicked.color"
+          :iconPaper="youPicked.icon"
         />
         <p class="text-center text-white text-xl font-bold">You Picked</p>
       </div>
       <div class="flex flex-col items-center">
         <TheOptions
-          :bgPrimary="bgPrimaryOpponent"
-          :bgSecondary="bgSecondaryOpponent"
-          :width="widthOpponent"
-          :iconPaper="iconOpponent"
+        :class="resultGame == 2 ? classWinner : ''"
+          :bgBorder="opponentPicked.color"
+          :iconPaper="opponentPicked.icon"
         />
         <p class="text-center text-white text-xl font-bold">Opponent Picked</p>
       </div>
     </div>
-  </div>
-  <TheResult />
+    <div class="relative p-6">
+      <TheResult :resultGame="resultGame" />
+    </div>
+    <TheRules />
+  </section>
 </template>
