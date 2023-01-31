@@ -10,8 +10,9 @@ export const opponentOption = () => {
 };
 
 export const getResultGame = (youPicked, opponentPicked) => {
+  console.log("youPicked",);
   if (youPicked.id === opponentPicked.id) {
-    return 2;
+    return 3;
   }
   if (youPicked.win.includes(opponentPicked.id)) {
     addScore();
